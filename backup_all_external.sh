@@ -24,7 +24,7 @@ ROOTLAST="/mnt/bakdrv/snapshots/root/last"
 date=`date "+%Y-%b-%d:_%T"`
 
 # Run rsync to create snapshot
-rsync $HOMEOPT --exclude="lost+found" $HOMELINK $HOMESRC ${HOMESNAP}$date
+rsync $HOMEOPT --exclude={"lost+found", "mnt"} $HOMELINK $HOMESRC ${HOMESNAP}$date
 # Remove symlink to previous snapshot
 rm -f $HOMELAST
 # Create new symlink to latest snapshot for the next backup to hardlink

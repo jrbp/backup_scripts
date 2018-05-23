@@ -18,7 +18,7 @@ LAST="/mnt/bakdrv/snapshots/home/last"
 date=`date "+%Y-%b-%d:_%T"`
 
 # Run rsync to create snapshot
-rsync $OPT --exclude="lost+found" $LINK $SRC ${SNAP}$date
+rsync $OPT --exclude={"lost+found", "mnt"} $LINK $SRC ${SNAP}$date
 
 # Remove symlink to previous snapshot
 rm -f $LAST
