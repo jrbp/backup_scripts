@@ -24,5 +24,6 @@ LABEL=LINUX0        	/         	ext4      	rw,relatime,data=ordered	0 1
 LABEL=HOME          	/home     	ext4      	rw,relatime,data=ordered	0 2
 
 EOF
+arch-chroot /mnt/LINUX0 pacman -U /var/cache/pacman/pkg/linux-$(pacman -Qii linux | grep Version | awk '{print $3}')-x86_64.pkg.tar.xz
 umount /mnt/LINUX0
 rm -r /mnt/LINUX0
