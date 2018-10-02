@@ -11,7 +11,6 @@ fi
 #should add some check that this is only run from LINUX0
 mkdir /mnt/LINUX1
 mount /dev/nvme0n1p6 /mnt/LINUX1
-#rsync -aHAXS --info=progress2 --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*"} / /mnt/LINUX1
 rsync -aHAXSv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*"} / /mnt/LINUX1
 cat <<EOF > /mnt/LINUX1/etc/fstab
 # 
